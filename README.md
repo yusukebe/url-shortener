@@ -20,9 +20,15 @@ By creating this application you will experience:
 
 ![Demo](https://github.com/yusukebe/url-shortener/assets/10682/aab18332-b38e-4425-a5f8-e25b71fa9168)
 
----
+## Source Code
 
-Then, let's start creating your application.
+You can see the entire source code here.
+
+## Tutorial
+
+I'll show you how to create your application!
+
+---
 
 ## Account
 
