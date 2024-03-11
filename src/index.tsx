@@ -1,4 +1,5 @@
 import { Hono } from 'hono'
+import { csrf } from 'hono/csrf'
 import { renderer } from './renderer'
 import { z } from 'zod'
 import { zValidator } from '@hono/zod-validator'
@@ -71,7 +72,7 @@ const createKey = async (kv: KVNamespace, url: string) => {
   return key
 }
 
-app.post('/create', validator, async (c) => {
+app.post('/create', csrf(), validator, async (c) => {
   const { url } = c.req.valid('form')
   const key = await createKey(c.env.KV, url)
 
