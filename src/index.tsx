@@ -59,15 +59,21 @@ const validator = zValidator('form', schema, (result, c) => {
   }
 })
 
+const createKey = async (kv: KVNamespace, url: string) => {
+  const uuid = crypto.randomUUID()
+  const key = uuid.substring(0, 6)
+  const result = await kv.get(key)
+  if (!result) {
+    await kv.put(key, url)
+  } else {
+    await createKey(kv, url)
+  }
+  return key
+}
+
 app.post('/create', validator, async (c) => {
   const { url } = c.req.valid('form')
-  const uuid = crypto.randomUUID()
-
-  let key = await c.env.KV.get(url)
-  if (!key) {
-    key = uuid.substring(0, 6)
-    await c.env.KV.put(key, url)
-  }
+  const key = await createKey(c.env.KV, url)
 
   const shortenUrl = new URL(`/${key}`, c.req.url)
 
