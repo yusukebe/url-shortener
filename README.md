@@ -7,6 +7,15 @@ By creating this application you will experience:
 - Using Cloudflare KV in your application.
 - Deploying your application to Cloudflare Pages.
 
+## The application feature
+
+- Developing with Vite.
+- Having UI.
+- The main code is less than 100 lines.
+- Validation with Zod.
+- Handling validation error.
+- CSRF Protection.
+
 ## Demo
 
 ![Demo](https://github.com/yusukebe/url-shortener/assets/10682/aab18332-b38e-4425-a5f8-e25b71fa9168)
