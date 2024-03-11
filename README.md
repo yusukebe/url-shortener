@@ -7,6 +7,10 @@ By creating this application you will experience:
 - Using Cloudflare KV in your application.
 - Deploying your application to Cloudflare Pages.
 
+## Demo
+
+![Demo](https://github.com/yusukebe/url-shortener/assets/10682/aab18332-b38e-4425-a5f8-e25b71fa9168)
+
 ## Tutorial
 
 ### Setup Project
