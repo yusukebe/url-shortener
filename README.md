@@ -1,4 +1,4 @@
-# Super Simple URL Shortener with Cloudflare Pages
+# Creating URL Shortener with Cloudflare Pages
 
 Let's create a super simple URL Shortener with Cloudflare Pages!
 By creating this application you will experience:
