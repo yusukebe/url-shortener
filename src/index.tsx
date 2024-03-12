@@ -60,14 +60,14 @@ const validator = zValidator('form', schema, (result, c) => {
   }
 })
 
-const createKey = async (kv: KVNamespace, url: string) => {
+const createKey = async (kv: KVNamespace, url: string): Promise<string> => {
   const uuid = crypto.randomUUID()
   const key = uuid.substring(0, 6)
   const result = await kv.get(key)
   if (!result) {
     await kv.put(key, url)
   } else {
-    await createKey(kv, url)
+    return await createKey(kv, url)
   }
   return key
 }
