@@ -289,7 +289,7 @@ const createKey = async (kv: KVNamespace, url: string) => {
   if (!result) {
     await kv.put(key, url)
   } else {
-    await createKey(kv, url)
+    return await createKey(kv, url)
   }
   return key
 }
