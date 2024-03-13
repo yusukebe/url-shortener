@@ -64,15 +64,6 @@ npm run dev
 
 By default, it launches at `http://localhost:5173`, so access it. You should be able to see the page.
 
-### Create `wrangler.toml`
-
-For this setup, a Cloudflare local development configuration file named `wrangler.toml` is needed. Create this file and write the following content into it:
-
-```toml
-name = "url-shortener"
-compatibility_date = "2023-12-01"
-```
-
 ### Create KV
 
 This app uses Cloudflare KV, a Key-Value store. To use it, you need to create a KV project by running the following command:
@@ -91,27 +82,6 @@ Add the following to your configuration file in your kv_namespaces array:
 ```
 
 Copy the `id` value `xxxxxx`, and write it into `wrangler.toml` in the format shown above.
-
-### Edit `vite.config.ts`
-
-To use Cloudflare's environment with Vite during development, edit `vite.config.ts` as shown below:
-
-```ts
-import build from '@hono/vite-cloudflare-pages'
-import devServer from '@hono/vite-dev-server'
-import adapter from '@hono/vite-dev-server/cloudflare' // <=== Add this
-import { defineConfig } from 'vite'
-
-export default defineConfig({
-  plugins: [
-    build(),
-    devServer({
-      entry: 'src/index.tsx',
-      adapter // <=== Add this
-    })
-  ]
-})
-```
 
 ### Install Dependencies
 
