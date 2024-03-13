@@ -298,12 +298,6 @@ app.post('/create', validator, async (c) => {
 })
 ```
 
-However, at this point, our layout isn't applied because, in the starter, the renderer middleware is only applied to GET requests. So, we enable it for all requests like this:
-
-```ts
-app.all('*', renderer)
-```
-
 Now, the short URL is created and displayed nicely.
 
 ![Screenshot](https://github.com/yusukebe/url-shortener/assets/10682/2eda47a4-8adb-460a-8432-289a00a36779)
