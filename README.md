@@ -69,7 +69,7 @@ By default, it launches at `http://localhost:5173`, so access it. You should be 
 This app uses Cloudflare KV, a Key-Value store. To use it, you need to create a KV project by running the following command:
 
 ```txt
-npm exec wrangler kv:namespace create KV
+npm exec wrangler kv namespace create KV
 ```
 
 You'll see a message like this:
@@ -134,9 +134,9 @@ export const renderer = jsxRenderer(({ children }) => {
 })
 ```
 
-### Making the top Page
+### Making the Home Page
 
-First, we're making a top page. It responds when someone visits the main path `/`. Here's how we set it up.
+First, we're making a home page. It responds when someone visits the root path `/`. Here's how we set it up.
 
 ```ts
 app.get('/', (c) => {
@@ -144,13 +144,13 @@ app.get('/', (c) => {
 })
 ```
 
-Inside the handler, we use `c.render()` to return HTML with our layout applied. We've set it up to send a POST request to `/create` to make a short URL.
+Inside the handler, we use `c.render()` to return HTML with our layout applied. We've set it up to send a POST request to `/create` to make a short URL.  Edit `src/index.tsx` with this:
 
 ```tsx
 app.get('/', (c) => {
   return c.render(
     <div>
-      <h2>Create shorten URL!</h2>
+      <h2>Create shortened URL!</h2>
       <form action="/create" method="post">
         <input
           type="text"
@@ -239,7 +239,7 @@ app.post('/create', validator, async (c) => {
 })
 ```
 
-There are a few strategies for generating a key, but we'll go with this:
+There are a few strategies for generating an unique key, but we'll go with this:
 
 - Create a random string.
 - Use 6 characters of it.
@@ -381,7 +381,6 @@ If it's your first time, you'll be asked a few questions like this. Just answer 
 ```txt
 Create a new project
 ? Enter the name of your new project: › url-shortener
-? Enter the production branch name: › main
 ```
 
 After running the command, a URL for your deployed site will be displayed. It might look something like this:
