@@ -1,0 +1,6 @@
+name = "url-shortener"
+compatibility_date = "2024-07-12"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
