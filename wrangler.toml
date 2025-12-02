@@ -1,6 +1,16 @@
-name = "url-shortener"
+# wrangler.toml
+name = 'url-shortener'
 compatibility_date = "2024-07-12"
+
+main = "dist/_worker.js"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+id = "028b8fbf405f440f8910dfcc0612483b"
+
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
